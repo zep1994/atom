@@ -61,8 +61,14 @@ module.exports = class PackageManager {
     if (params.configDirPath != null && !params.safeMode) {
       if (this.devMode) {
         this.packageDirPaths.push(path.join(params.configDirPath, 'dev', 'packages'))
+        if (process.env.ATOM_DEV_RESOURCE_PATH) {
+          this.packageDirPaths.push(path.join(process.env.ATOM_DEV_RESOURCE_PATH, 'packages'))
+        }
       }
       this.packageDirPaths.push(path.join(params.configDirPath, 'packages'))
+
+      // NOTE: This isn't needed if we fix apm to take file paths
+      this.packageDirPaths.push(path.join(this.resourcePath, 'packages'))
     }
   }
 
@@ -215,6 +221,7 @@ module.exports = class PackageManager {
   //
   // Returns a {Boolean}.
   isBundledPackage (name) {
+    // This needs to start working for the package folder
     return this.getPackageDependencies().hasOwnProperty(name)
   }
 

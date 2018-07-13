@@ -2,6 +2,8 @@
 
 'use strict'
 
+const glob = require('glob')
+const path = require('path')
 const childProcess = require('child_process')
 const CONFIG = require('./config')
 const cleanDependencies = require('./lib/clean-dependencies')
@@ -34,4 +36,12 @@ childProcess.execFileSync(
 )
 runApmInstall(CONFIG.repositoryRootPath)
 
-dependenciesFingerprint.write()
+glob(__dirname + "/../packages/*/package.json", function (er, files) {
+  files.forEach(function (file) {
+    const packagePath = path.dirname(file)
+    console.log(`Installing ${path.basename(packagePath)}`)
+    runApmInstall(packagePath)
+  })
+
+  dependenciesFingerprint.write()
+})

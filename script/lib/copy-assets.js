@@ -16,6 +16,7 @@ module.exports = function () {
     path.join(CONFIG.repositoryRootPath, 'dot-atom'),
     path.join(CONFIG.repositoryRootPath, 'exports'),
     path.join(CONFIG.repositoryRootPath, 'node_modules'),
+    path.join(CONFIG.repositoryRootPath, 'packages'),
     path.join(CONFIG.repositoryRootPath, 'package.json'),
     path.join(CONFIG.repositoryRootPath, 'static'),
     path.join(CONFIG.repositoryRootPath, 'src'),

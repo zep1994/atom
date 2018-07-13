@@ -135,7 +135,7 @@
     "timecop": "0.36.2",
     "tree-view": "0.222.0",
     "update-package-dependencies": "0.13.1",
-    "welcome": "0.36.6",
+    "welcome": "file:./packages/welcome",
     "whitespace": "0.37.6",
     "wrap-guide": "0.40.3",
     "language-c": "0.59.11",

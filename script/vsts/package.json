@@ -2,7 +2,7 @@
   "name": "atom-release-scripts",
   "description": "Atom release scripts",
   "dependencies": {
-    "request": "^2.87.0",
+    "request": "^2.88.2",
     "request-promise-native": "^1.0.5"
   }
 }
